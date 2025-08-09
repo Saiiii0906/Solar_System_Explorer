@@ -17,7 +17,7 @@ An interactive, browser-based visualization of the solar system built with HTML,
 
 ## Getting Started 🏁
 1. Clone the repo:
-   - git clone https://github.com/your-username/solar-system-explorer.git  
+   - git clone https://github.com/Saiiii0906/solar-system-explorer.git  
    - cd solar-system-explorer
 2. Open index.html in a modern browser (Chrome, Edge, Firefox, Safari). 🌐
 
