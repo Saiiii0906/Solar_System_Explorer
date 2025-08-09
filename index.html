@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <h1 class="title">
+            <span class="title-text">3D Solar System Explorer</span>
+            <div class="subtitle">Click planets to explore • Drag to rotate view</div>
+        </h1>
+        
+        <div class="controls">
+            <button id="reset-btn" class="control-btn">Reset View</button>
+            <button id="speed-btn" class="control-btn">Speed: 1x</button>
+            <button id="orbit-btn" class="control-btn">Hide Orbits</button>
+            <button id="satellites-btn" class="control-btn">Toggle Satellites</button>
+        </div>
+        
+        <div class="solar-system-container">
+            <div class="solar-system" id="solar-system">
+                <!-- Sun (center) -->
+                <div class="celestial-body sun" data-planet="sun">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface">
+                        <div class="planet-texture sun-texture"></div>
+                    </div>
+                </div>
+                
+                <!-- Mercury -->
+                <div class="orbit orbit-mercury">
+                    <div class="celestial-body planet mercury" data-planet="mercury">
+                        <div class="planet-surface">
+                            <div class="planet-texture mercury-texture"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Venus -->
+                <div class="orbit orbit-venus">
+                    <div class="celestial-body planet venus" data-planet="venus">
+                        <div class="planet-surface">
+                            <div class="planet-texture venus-texture"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Earth with Moon -->
+                <div class="orbit orbit-earth">
+                    <div class="celestial-body planet earth" data-planet="earth">
+                        <div class="planet-surface">
+                            <div class="planet-texture earth-texture"></div>
+                        </div>
+                        <div class="satellite-system">
+                            <div class="moon-orbit">
+                                <div class="celestial-body satellite moon" data-planet="moon">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture moon-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mars with Moons -->
+                <div class="orbit orbit-mars">
+                    <div class="celestial-body planet mars" data-planet="mars">
+                        <div class="planet-surface">
+                            <div class="planet-texture mars-texture"></div>
+                        </div>
+                        <div class="satellite-system">
+                            <div class="phobos-orbit">
+                                <div class="celestial-body satellite phobos" data-planet="phobos">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture asteroid-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deimos-orbit">
+                                <div class="celestial-body satellite deimos" data-planet="deimos">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture asteroid-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jupiter with Major Moons -->
+                <div class="orbit orbit-jupiter">
+                    <div class="celestial-body planet jupiter" data-planet="jupiter">
+                        <div class="planet-surface">
+                            <div class="planet-texture jupiter-texture"></div>
+                        </div>
+                        <div class="satellite-system">
+                            <div class="io-orbit">
+                                <div class="celestial-body satellite io" data-planet="io">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture io-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="europa-orbit">
+                                <div class="celestial-body satellite europa" data-planet="europa">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture europa-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ganymede-orbit">
+                                <div class="celestial-body satellite ganymede" data-planet="ganymede">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture ganymede-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="callisto-orbit">
+                                <div class="celestial-body satellite callisto" data-planet="callisto">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture callisto-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Saturn with Rings and Major Moons -->
+                <div class="orbit orbit-saturn">
+                    <div class="celestial-body planet saturn" data-planet="saturn">
+                        <div class="planet-surface">
+                            <div class="planet-texture saturn-texture"></div>
+                        </div>
+                        <div class="saturn-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                        <div class="satellite-system">
+                            <div class="titan-orbit">
+                                <div class="celestial-body satellite titan" data-planet="titan">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture titan-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="enceladus-orbit">
+                                <div class="celestial-body satellite enceladus" data-planet="enceladus">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture enceladus-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Uranus with Major Moons -->
+                <div class="orbit orbit-uranus">
+                    <div class="celestial-body planet uranus" data-planet="uranus">
+                        <div class="planet-surface">
+                            <div class="planet-texture uranus-texture"></div>
+                        </div>
+                        <div class="satellite-system">
+                            <div class="titania-orbit">
+                                <div class="celestial-body satellite titania" data-planet="titania">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture ice-moon-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oberon-orbit">
+                                <div class="celestial-body satellite oberon" data-planet="oberon">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture ice-moon-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Neptune with Triton -->
+                <div class="orbit orbit-neptune">
+                    <div class="celestial-body planet neptune" data-planet="neptune">
+                        <div class="planet-surface">
+                            <div class="planet-texture neptune-texture"></div>
+                        </div>
+                        <div class="satellite-system">
+                            <div class="triton-orbit">
+                                <div class="celestial-body satellite triton" data-planet="triton">
+                                    <div class="planet-surface">
+                                        <div class="planet-texture triton-texture"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Planet Info Panel -->
+        <div class="planet-info-panel" id="info-panel">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <div class="planet-info-content">
+                <h2 id="planet-name">3D Solar System</h2>
+                <div class="planet-stats">
+                    <div class="stat">
+                        <span class="stat-label">Distance from Sun:</span>
+                        <span class="stat-value" id="planet-distance">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Diameter:</span>
+                        <span class="stat-value" id="planet-diameter">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Orbital Period:</span>
+                        <span class="stat-value" id="planet-period">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Temperature:</span>
+                        <span class="stat-value" id="planet-temp">-</span>
+                    </div>
+                </div>
+                <div class="planet-description" id="planet-desc">
+                    Welcome to the 3D Solar System Explorer! Click on any planet or satellite to learn more about it.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
